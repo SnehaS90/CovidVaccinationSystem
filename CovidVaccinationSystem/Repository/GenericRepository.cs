@@ -16,14 +16,16 @@ namespace CovidVaccinationSystem.Repository
             this._logger = logger;
         }
 
-        public virtual Task<IQueryable<T>> All()
+        public virtual async Task<IQueryable<T>> All()
         {
-            throw new NotImplementedException();
+           return  dbSet.AsQueryable();
+            //throw new NotImplementedException();
         }
 
         public virtual async Task<T> GetById(int id)
-        {            
-            throw new NotImplementedException();
+        {
+            return await dbSet.FindAsync(id);
+            //throw new NotImplementedException();
         }
 
         public virtual async Task<bool> Add(T entity)
